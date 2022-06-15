@@ -29,13 +29,13 @@ except:
     
 def emotionImage(emotion):
 	# Emojis
-	if emotion == 'Disgusto': image = cv2.imread('Emojis/disgusto.jpeg')
-	if emotion == 'Enojo': image = cv2.imread('Emojis/enojo.jpeg')
-	if emotion == 'Felicidad': image = cv2.imread('Emojis/felicidad.jpeg')
-	if emotion == 'Miedo': image = cv2.imread('Emojis/miedo.jpeg')
-	if emotion == 'Somnoliento': image = cv2.imread('Emojis/somnoliento.jpeg')        
-	if emotion == 'Sorpresa': image = cv2.imread('Emojis/sorpresa.jpeg')
-	if emotion == 'Tristeza': image = cv2.imread('Emojis/tristeza.jpeg')
+	if emotion == 'Disgusto': image = cv.imread('Emojis/disgusto.jpeg')
+	if emotion == 'Enojo': image = cv.imread('Emojis/enojo.jpeg')
+	if emotion == 'Felicidad': image = cv.imread('Emojis/felicidad.jpeg')
+	if emotion == 'Miedo': image = cv.imread('Emojis/miedo.jpeg')
+	if emotion == 'Somnoliento': image = cv.imread('Emojis/somnoliento.jpeg')        
+	if emotion == 'Sorpresa': image = cv.imread('Emojis/sorpresa.jpeg')
+	if emotion == 'Tristeza': image = cv.imread('Emojis/tristeza.jpeg')
 	return image
 
 dataPath = 'Dir_drow' #Cambia a la ruta donde hayas almacenado Data
@@ -46,9 +46,9 @@ mp_drawing = mp.solutions.drawing_utils
 
 def hconcat_resize_min(im_list, interpolation=cv.INTER_CUBIC):
     h_min = min(im.shape[0] for im in im_list)
-    im_list_resize = [cv2.resize(im, (int(im.shape[1] * h_min / im.shape[0]), h_min), interpolation=interpolation)
+    im_list_resize = [cv.resize(im, (int(im.shape[1] * h_min / im.shape[0]), h_min), interpolation=interpolation)
                       for im in im_list]
-    return cv2.hconcat(im_list_resize)
+    return cv.hconcat(im_list_resize)
 
 DEMO_IMAGE = 'demo/demo.jpg'
 DEMO_VIDEO = 'demo/demo.mp4'
@@ -195,7 +195,7 @@ elif app_mode == 'Image':
         
         # Convert the BGR image to RGB and process it with MediaPipe Face Detection.
     
-        results = face_detection.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+        results = face_detection.process(cv.cvtColor(image, cv.COLOR_BGR2RGB))
 
         # Draw face detections of each face.
 #        if not results.detections:
@@ -322,9 +322,9 @@ elif app_mode == 'Video':
                 y_data = []
                 r_data = []
                 
-                image_2 = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
+                image_2 = cv.cvtColor(frame,cv.COLOR_BGR2RGB)
                 height, width, _ = image_2.shape
-                image_rgb = cv2.cvtColor(image_2, cv2.COLOR_BGR2RGB)
+                image_rgb = cv.cvtColor(image_2, cv.COLOR_BGR2RGB)
                 
                 
                 results = face_mesh.process(frame)
@@ -360,7 +360,7 @@ elif app_mode == 'Video':
                 
                 with mp_face_detection.FaceDetection(
                     model_selection=1, min_detection_confidence=0.5) as face_detection:
-                        results = face_detection.process(cv.cvtColor(frame, cv2.COLOR_BGR2RGB))
+                        results = face_detection.process(cv.cvtColor(frame, cv.COLOR_BGR2RGB))
                         # Draw face detections of each face.
                         if not results.detections:
                             continue
@@ -375,7 +375,7 @@ elif app_mode == 'Video':
                             #y_coor = int(detection.location_data.relative_keypoints[0].y * height) ubicación de puntos que alumbran
                             cv.rectangle(annotated_image, (x_coor,y_coor),(x_coor+w_coor,y_coor+h_coor),(255,255,0),2)
 
-                cv.putText(annotated_image,'{}'.format(imagePaths[int(res[0])]),(x_coor,y_coor-5),1,1.7,(255,255,0),1,cv2.LINE_AA)
+                cv.putText(annotated_image,'{}'.format(imagePaths[int(res[0])]),(x_coor,y_coor-5),1,1.7,(255,255,0),1,cv.LINE_AA)
                 
                 im = emotionImage(imagePaths[int(res[0])])
                 
