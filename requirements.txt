@@ -5,5 +5,5 @@ pandas==1.4.2
 Pillow==9.1.1
 scikit_learn==1.1.1
 streamlit==1.10.0
-~pencv_python_headless==4.6.0.66
-~treamlit==1.10.0
+opencv_python_headless==4.6.0.66
+streamlit==1.10.0
