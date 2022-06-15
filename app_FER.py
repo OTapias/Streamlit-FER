@@ -50,7 +50,7 @@ def hconcat_resize_min(im_list, interpolation=cv2.INTER_CUBIC):
                       for im in im_list]
     return cv2.hconcat(im_list_resize)
 
-DEMO_IMAGE = 'demo/OC_LC_JD.png'
+DEMO_IMAGE = 'demo/demo.jpg'
 DEMO_VIDEO = 'demo/demo.mp4'
 
 # Basic App Scaffolding
