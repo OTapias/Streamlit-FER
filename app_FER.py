@@ -19,13 +19,13 @@ import joblib
 #clf = SVC(kernel = 'linear').fit(X_train,y_train) 
 
 try:
-    clf = joblib.load("D:/_0/svm/mediaPipe.pkl")
+    clf = joblib.load("svm/mediaPipe.pkl")
     print("using trained model")
 except:
     print("building new model")
     #clf = SVC(kernel = 'linear').fit(X_train,y_train)
     #clf.fit(X_train, y_train)
-    joblib.dump(clf,"D:/_0/svm/mediaPipe.pk")
+    joblib.dump(clf,"svm/mediaPipe.pk")
     
 def emotionImage(emotion):
 	# Emojis
@@ -38,7 +38,7 @@ def emotionImage(emotion):
 	if emotion == 'Tristeza': image = cv2.imread('Emojis/tristeza.jpeg')
 	return image
 
-dataPath = 'D:/_0/Dir_drow' #Cambia a la ruta donde hayas almacenado Data
+dataPath = 'Dir_drow' #Cambia a la ruta donde hayas almacenado Data
 imagePaths = os.listdir(dataPath)
 
 mp_face_detection = mp.solutions.face_detection
@@ -50,8 +50,8 @@ def hconcat_resize_min(im_list, interpolation=cv2.INTER_CUBIC):
                       for im in im_list]
     return cv2.hconcat(im_list_resize)
 
-DEMO_IMAGE = 'd:/_0/OC_LC_JD.png'
-DEMO_VIDEO = 'd:/_0/demo.mp4'
+DEMO_IMAGE = 'demo/OC_LC_JD.png'
+DEMO_VIDEO = 'demo/demo.mp4'
 
 # Basic App Scaffolding
 st.title('Facial Expressions Recognition usando VSM, Mediapipe y Streamlit')
