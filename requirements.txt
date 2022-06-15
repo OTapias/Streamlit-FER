@@ -10,3 +10,4 @@ scikit-learn==1.0.2
 scikit-image==0.19.2
 joblib==1.1.0
 ffmpeg==1.4
+ffmpeg-python==0.2.0
