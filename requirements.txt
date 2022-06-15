@@ -1,9 +1,12 @@
-opencv-python==3.4.2.17
-opencv-contrib-python==3.4.2.17
+opencv-python==4.6.0.66
+opencv-contrib-python==4.6.0.66
+opencv-contrib-python==4.6.0.66
 streamlit==1.10.0
 mediapipe==0.8.10
 numpy==1.21.5
 Pillow==9.0.1
 pandas==1.4.2
 scikit-learn==1.0.2
+scikit-image==0.19.2
+scikit-learn-intelex==2021.20220215.102710
 joblib==1.1.0
