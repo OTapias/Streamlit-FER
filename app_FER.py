@@ -44,7 +44,7 @@ imagePaths = os.listdir(dataPath)
 mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
 
-def hconcat_resize_min(im_list, interpolation=cv2.INTER_CUBIC):
+def hconcat_resize_min(im_list, interpolation=cv.INTER_CUBIC):
     h_min = min(im.shape[0] for im in im_list)
     im_list_resize = [cv2.resize(im, (int(im.shape[1] * h_min / im.shape[0]), h_min), interpolation=interpolation)
                       for im in im_list]
